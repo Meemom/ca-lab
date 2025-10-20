@@ -13,7 +13,7 @@ public class LogoutInteractor implements LogoutInputBoundary {
     }
 
     @Override
-    public void execute(LogoutOutputData logoutOutputData) {
+    public void execute() {
         // TODO: implement the logic of the Logout Use Case
         // * set the current username to null in the DAO
         // * instantiate the `LogoutOutputData`, which needs to contain the username.
