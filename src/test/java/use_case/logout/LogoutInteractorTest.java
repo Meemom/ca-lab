@@ -29,7 +29,7 @@ class LogoutInteractorTest {
 };
 
         LogoutInputBoundary interactor = new LogoutInteractor(userRepository, successPresenter);
-        interactor.execute();
+        interactor.execute(logoutOutputData);
         assertNull(userRepository.getCurrentUsername());
     }
 
