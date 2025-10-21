@@ -20,7 +20,6 @@ public class LogoutPresenter implements LogoutOutputBoundary {
     public LogoutPresenter(ViewManagerModel viewManagerModel,
                           LoggedInViewModel loggedInViewModel,
                            LoginViewModel loginViewModel) {
-        // TODO: assign to the three instance variables.
         this.loggedInViewModel = loggedInViewModel;
         this.viewManagerModel = viewManagerModel;
         this.loginViewModel = loginViewModel;
@@ -34,21 +33,19 @@ public class LogoutPresenter implements LogoutOutputBoundary {
         // We also need to set the username in the LoggedInState to
         // the empty string.
 
-        // TODO: have prepareSuccessView update the LoggedInState
         // 1. get the LoggedInState out of the appropriate View Model,
         final LoggedInState loggedInState = loggedInViewModel.getState();
         // 2. set the username in the state to the empty string
-        final String username = loggedInState.getUsername();
         loggedInState.setUsername("");
+        loggedInState.setPassword("");
         // 3. firePropertyChanged so that the View that is listening is updated.
         this.loggedInViewModel.firePropertyChange();
 
-
-        // TODO: have prepareSuccessView update the LoginState
         // 1. get the LoginState out of the appropriate View Model,
         final LoginState loginState = loginViewModel.getState();
         // 2. set the username in the state to be the username of the user that just logged out,
-        loginState.setUsername(username);
+        loginState.setUsername(response.getUsername());
+        loginState.setPassword("");
         // 3. firePropertyChanged so that the View that is listening is updated.
         this.loginViewModel.firePropertyChange();
 
